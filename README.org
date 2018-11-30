@@ -1,0 +1,28 @@
+* Auto Tracker Processing Function
+/WIP/
+
+Azure function to process incoming data from a vehicle
+
+** Functions
+- Extract GPS parameters from NMEA sentence
+- Send text message if the vehicle is above a certain threshold speed
+- Send reading to a Firebase Real Time Database to be displayed on an Android app
+
+** Future Improvements
+- Track acceleration between warnings
+- Send readings to larger/longer term (where data is not constantly overwritten) database so that users can download previous trip statistics
+- Add more vehicle parameters to monitor vehicle health externally
+
+* Credentials.cs
+Included in the =.gitignore= there is a file called =Credentials.cs= it has the following contents:
+
+[[./credentials.PNG]]
+
+- ~accountSid~: Account SID from Twilio
+- ~authToken~: Authentication token from Twilio
+- ~from~: Twilio  phone number that will send the text
+  + ~public const string from = "+1 xxx yyy zzzz"_~
+- ~to~: Phone number that Twilio sends to
+  + Will eventually be replaced with a database look up to get the phone number(s) associated with a device
+- ~firebaseURL~: URL of the Firebase Database
+  
